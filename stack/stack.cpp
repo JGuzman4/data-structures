@@ -1,6 +1,6 @@
 /*
  * Jeff Guzman
- * Implementation of a linked list.
+ * Implementation of a stack.
  *
  *
  *

@@ -35,11 +35,10 @@ void List::push_front(int key){
     m_head = new Node(key);
     return;
   }
-  else {
-    Node *tmp = m_head;
-    m_head = new Node(key);
-    m_head->m_next = tmp;
-  }
+  Node *tmp = m_head;
+  m_head = new Node(key);
+  m_head->m_next = tmp;
+
 }
 
 void List::remove(int key){
