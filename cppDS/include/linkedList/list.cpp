@@ -6,20 +6,16 @@
  *
  *
  */
-#include<iostream>
-#include<vector> 
-#include<string> 
+#include <iostream>
 using namespace std;
 
 #include "list.h"
 
-
-void List::push_back(int key){
-  if (m_head == NULL){
+void List::push_back(int key) {
+  if (m_head == NULL) {
     m_head = new Node(key);
     return;
-  }
-  else {
+  } else {
     Node *tmp = m_head;
 
     while (tmp->m_next != NULL)
@@ -30,43 +26,41 @@ void List::push_back(int key){
   }
 }
 
-void List::push_front(int key){
-  if (m_head == NULL){
+void List::push_front(int key) {
+  if (m_head == NULL) {
     m_head = new Node(key);
     return;
   }
   Node *tmp = m_head;
   m_head = new Node(key);
   m_head->m_next = tmp;
-
 }
 
-void List::remove(int key){
+void List::remove(int key) {
   if (m_head == NULL)
     return;
 
-    Node *tmp = m_head;
-    while (tmp->m_next != NULL){
-      if (tmp->m_key == key){
-        tmp->m_prev->m_next = tmp->m_next;
+  Node *tmp = m_head;
+  while (tmp->m_next != NULL) {
+    if (tmp->m_key == key) {
+      tmp->m_prev->m_next = tmp->m_next;
 
-        delete tmp;
-        return;
-      }
-      tmp = tmp->m_next;
+      delete tmp;
+      return;
     }
+    tmp = tmp->m_next;
+  }
 }
 
-void List::print(){
+void List::print() {
   if (m_head == NULL)
     return;
 
   Node *tmp = m_head;
 
-  while (tmp->m_next != NULL){
+  while (tmp->m_next != NULL) {
     cout << tmp->m_key << " ";
     tmp = tmp->m_next;
   }
   cout << tmp->m_key << endl;
-
 }

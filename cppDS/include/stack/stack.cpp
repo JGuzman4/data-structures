@@ -6,15 +6,13 @@
  *
  *
  */
-#include<iostream>
-#include<vector> 
-#include<string> 
+#include <iostream>
 using namespace std;
 
 #include "stack.h"
 
-void Stack::push(int key){
-  if (empty()){
+void Stack::push(int key) {
+  if (empty()) {
     m_top = new Node(key);
     return;
   }
@@ -23,10 +21,9 @@ void Stack::push(int key){
   m_top->m_prev = new Node(key);
   m_top = m_top->m_prev;
   m_top->m_next = tmp;
-
 }
 
-int Stack::pop(){
+int Stack::pop() {
   if (empty())
     return 0;
   int i = m_top->m_key;
@@ -37,13 +34,13 @@ int Stack::pop(){
   return i;
 }
 
-int Stack::length(){
+int Stack::length() {
   if (empty())
     return 0;
   int i = 1;
 
   Node *tmp = m_top;
-  while (tmp->m_next != NULL){
+  while (tmp->m_next != NULL) {
     i++;
     tmp = tmp->m_next;
   }
@@ -51,21 +48,20 @@ int Stack::length(){
   return i;
 }
 
-void Stack::print(){
+void Stack::print() {
   if (m_top == NULL)
     return;
 
   Node *tmp = m_top;
 
-  while (tmp->m_next != NULL){
+  while (tmp->m_next != NULL) {
     cout << tmp->m_key << endl;
     tmp = tmp->m_next;
   }
   cout << tmp->m_key << endl;
-
 }
 
-bool Stack::empty(){
+bool Stack::empty() {
   if (m_top == NULL)
     return true;
 

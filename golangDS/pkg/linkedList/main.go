@@ -1,4 +1,4 @@
-package main
+package linkedList
 
 import "fmt"
 
@@ -11,13 +11,13 @@ type node struct {
 	value int
 }
 
-func newLinkedList() linkedList {
+func NewLinkedList() linkedList {
 	ll := linkedList{}
 	ll.head = nil
 	return ll
 }
 
-func (ll *linkedList) insert(val int) {
+func (ll *linkedList) Insert(val int) {
 	if ll.head == nil {
 		n := node{
 			next:  nil,
@@ -36,7 +36,7 @@ func (ll *linkedList) insert(val int) {
 	}
 }
 
-func (ll *linkedList) remove(val int) {
+func (ll *linkedList) Remove(val int) {
 	if ll.head.value == val {
 		ll.head = ll.head.next
 	}
@@ -51,7 +51,7 @@ func (ll *linkedList) remove(val int) {
 	}
 }
 
-func (ll linkedList) print() {
+func (ll linkedList) Print() {
 	if ll.head == nil {
 		return
 	}

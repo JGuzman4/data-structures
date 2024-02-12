@@ -6,15 +6,13 @@
  *
  *
  */
-#include<iostream>
-#include<vector> 
-#include<string> 
+#include <iostream>
 using namespace std;
 
 #include "queue.h"
 
-void Queue::enqueue(int key){
-  if (empty()){
+void Queue::enqueue(int key) {
+  if (empty()) {
     m_front = new Node(key);
     return;
   }
@@ -24,10 +22,9 @@ void Queue::enqueue(int key){
     tmp = tmp->m_prev;
   tmp->m_prev = new Node(key);
   tmp->m_prev->m_next = tmp;
-
 }
 
-int Queue::dequeue(){
+int Queue::dequeue() {
   if (empty())
     return 0;
 
@@ -36,18 +33,17 @@ int Queue::dequeue(){
   int i = tmp->m_key;
   m_front = m_front->m_prev;
 
-
   delete tmp;
   return i;
 }
 
-int Queue::length(){
+int Queue::length() {
   if (empty())
     return 0;
   int i = 1;
 
   Node *tmp = m_front;
-  while (tmp->m_prev != NULL){
+  while (tmp->m_prev != NULL) {
     i++;
     tmp = tmp->m_prev;
   }
@@ -55,21 +51,20 @@ int Queue::length(){
   return i;
 }
 
-void Queue::print(){
+void Queue::print() {
   if (m_front == NULL)
     return;
 
   Node *tmp = m_front;
 
-  while (tmp->m_prev != NULL){
+  while (tmp->m_prev != NULL) {
     cout << tmp->m_key << " ";
     tmp = tmp->m_prev;
   }
   cout << tmp->m_key << endl;
-
 }
 
-bool Queue::empty(){
+bool Queue::empty() {
   if (m_front == NULL)
     return true;
 
