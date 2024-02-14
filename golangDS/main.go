@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"golangDS/pkg/linkedList"
+	"golangDS/pkg/stack"
 )
 
 func main() {
@@ -13,9 +13,18 @@ func main() {
 	list.Insert(4)
 	list.Insert(6)
 
-	fmt.Println("BEFORE:")
+	stck := stack.NewStack()
+	stck.Push(1)
+	stck.Push(2)
+	stck.Push(3)
+	stck.Push(4)
+
 	list.Print()
 	list.Remove(8)
-	fmt.Println("AFTER:")
 	list.Print()
+
+	stck.Print()
+	stck.Pop()
+	stck.Pop()
+	stck.Print()
 }
