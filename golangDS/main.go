@@ -2,29 +2,41 @@ package main
 
 import (
 	"golangDS/pkg/linkedList"
+	"golangDS/pkg/queue"
 	"golangDS/pkg/stack"
 )
 
 func main() {
-	list := linkedList.NewLinkedList()
-	list.Insert(1)
-	list.Insert(7)
-	list.Insert(8)
-	list.Insert(4)
-	list.Insert(6)
+	l := linkedList.NewLinkedList()
+	l.Insert(1)
+	l.Insert(7)
+	l.Insert(8)
+	l.Insert(4)
+	l.Insert(6)
 
-	stck := stack.NewStack()
-	stck.Push(1)
-	stck.Push(2)
-	stck.Push(3)
-	stck.Push(4)
+	s := stack.NewStack()
+	s.Push(1)
+	s.Push(2)
+	s.Push(3)
+	s.Push(4)
 
-	list.Print()
-	list.Remove(8)
-	list.Print()
+	q := queue.NewQueue()
+	q.Enqueue(8)
+	q.Enqueue(9)
+	q.Enqueue(1)
+	q.Enqueue(5)
+	q.Enqueue(4)
 
-	stck.Print()
-	stck.Pop()
-	stck.Pop()
-	stck.Print()
+	l.Print()
+	l.Remove(8)
+	l.Print()
+
+	s.Print()
+	s.Pop()
+	s.Pop()
+	s.Print()
+
+	q.Print()
+	q.Dequeue()
+	q.Print()
 }
